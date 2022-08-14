@@ -51,7 +51,6 @@ def printMenu():
     print("1- Cargar Libros")
     print("2- Cargar Tags")
     # TODO: Modificaciones lab 1, agregar opcion 3.
-
     print("0- Salir")
 
 
@@ -75,7 +74,7 @@ def loadTags(control):
 
 def loadBooksTags(control):
     """
-    Carga los libros con sus respectivos tags
+    Cargar los Tags de libros
     """
     booksTags = controller.loadBooksTags(control,
                                          "GoodReads/book_tags-small1.csv")
