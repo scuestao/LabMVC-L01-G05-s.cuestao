@@ -94,7 +94,7 @@ def addBookTags(catalog, booktagsfile):
     Esta funcion crea una lista basado en el archivo de booktags. siga
     el mismo procedimiento que la funcion addBooks.
     """
-    # TODO: Modificaciones lab 1, completar funcion.
+    # TODO: Modificaciones lab 1, completar funcion de carga.
     pass
 
 
