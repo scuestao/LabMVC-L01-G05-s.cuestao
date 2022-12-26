@@ -77,7 +77,7 @@ def loadBooksTags(control):
     Cargar los Tags de libros
     """
     booksTags = controller.loadBooksTags(control,
-                                         "GoodReads/book_tags-small1.csv")
+                                         "GoodReads/book_tags-small.csv")
     return booksTags
 
 
