@@ -46,9 +46,16 @@ def newCatalog():
     una lista vacia para los generos y una lista vacia para la asociación
     generos y libros. Retorna el catalogo inicializado.
     """
-    catalog = {"books": None,
-               "tags": None,
-               "book_tags": None}
+    catalog = {
+        "books": None,
+        "tags": None,
+        "book_tags": None,
+    }
+
+    # definicion de arreglos
+    catalog["books"] = lt.newList(datastructure="ARRAY_LIST")
+    catalog["tags"] = lt.newList(datastructure="ARRAY_LIST")
+    catalog["book_tags"] = lt.newList(datastructure="ARRAY_LIST")
     return catalog
 
 
@@ -65,8 +72,10 @@ def addBooks(catalog, booksfile):
     es leyendo todo lo que encuentre en el archivo indicado por filename.
     Cada linea del archivo quedará en una posicion de la lista.
     """
-    catalog["books"] = lt.newList(datastructure="SINGLE_LINKED",
-                                  filename=booksfile)
+    books = catalog.get("books")
+    books = lt.newList(datastructure="SINGLE_LINKED",
+                       filename=booksfile)
+    catalog.update({"books": books})
     return catalog
 
 
@@ -76,7 +85,8 @@ def addTag(catalog, tag):
     En este caso, agregaremos cada linea del archivo a la lista, en lugar
     de usar la opcion de crearla con el nombre del archivo.
     """
-    lt.addLast(catalog["tags"], tag)
+    tags = catalog.get("tags")
+    lt.addLast(tags, tag)
     return catalog
 
 
@@ -85,7 +95,8 @@ def createTagList(catalog):
     Esta funcion crea una lista vacia. Esta lista se utilizara
     para ir guardando la informacion en el archivo de tags.
     """
-    catalog["tags"] = lt.newList(datastructure="SINGLE_LINKED")
+    tags = lt.newList(datastructure="SINGLE_LINKED")
+    catalog.update({"tags": tags})
     return catalog
 
 
@@ -94,8 +105,12 @@ def addBookTags(catalog, booktagsfile):
     Esta funcion crea una lista basado en el archivo de booktags. siga
     el mismo procedimiento que la funcion addBooks.
     """
-    # TODO: Modificaciones lab 1, completar funcion de carga.
-    pass
+    # TODO: Mods Lab 1, completar funcion.
+    book_tags = catalog.get("Book_tags")
+    book_tags = lt.newList(datastructure="SINGLE_LINKED",
+                           filename=booktagsfile)
+    catalog.update({"Book_tags": book_tags})
+    return catalog
 
 
 # Funciones de consulta
@@ -110,3 +125,18 @@ def tagSize(catalog):
 
 def bookTagSize(catalog):
     return lt.size(catalog["book_tags"])
+
+
+def emptyBooks(catalog):
+    books = catalog.get("books")
+    return lt.isEmpty(books)
+
+
+def emptyTags(catalog):
+    tags = catalog.get("tags")
+    return lt.isEmpty(tags)
+
+
+def emptyBookTags(catalog):
+    book_tags = catalog.get("book_tags")
+    return lt.isEmpty(book_tags)

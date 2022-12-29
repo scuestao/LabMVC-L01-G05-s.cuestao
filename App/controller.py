@@ -54,29 +54,41 @@ def loadBooks(control, filename):
     cada uno de ellos, se crea en la lista de autores, a dicho autor y una
     referencia al libro que se esta procesando.
     """
-    catalog = control["model"]
+    catalog = control.get("model")
     booksfile = os.path.join(cf.data_dir, filename)
     catalog = model.addBooks(catalog, booksfile)
-    return model.bookSize(catalog)
+    if model.emptyBooks(catalog):
+        return None
+    else:
+        return model.bookSize(catalog)
 
 
 def loadTags(control, filename):
     """
     Carga todos los tags del archivo y los agrega a la lista de tags
     """
-    catalog = control["model"]
+    catalog = control.get("model")
     tagsfile = os.path.join(cf.data_dir, filename)
     input_file = csv.DictReader(open(tagsfile, encoding="utf-8"))
     catalog = model.createTagList(catalog)
     for tag in input_file:
         model.addTag(catalog, tag)
-    return model.tagSize(catalog)
+    if model.emptyTags(catalog):
+        return None
+    else:
+        return model.tagSize(catalog)
 
 
 def loadBooksTags(control, filename):
-    # TODO: Modificaciones lab 1, integrar vista y modelo
+    # TODO: Mods Lab 1, integrar vista y modelo
     """
     Carga los tags de los libros del archivo y los agrega a la lista
     de tags. Siga el mismo procedimiento que en la carga de libros.
     """
-    pass
+    catalog = control.get("model")
+    booksfile = os.path.join(cf.data_dir, filename)
+    catalog = model.addBookTags(catalog, booksfile)
+    if model.emptyBookTags(catalog):
+        return None
+    else:
+        return model.bookTagSize(catalog)

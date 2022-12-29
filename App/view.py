@@ -50,7 +50,8 @@ def printMenu():
     print("Opciones:")
     print("1- Cargar Libros")
     print("2- Cargar Tags")
-    # TODO: Modificaciones lab 1, agregar la opcion 3.
+    # TODO: Mods Lab 1, agregar la opcion 3.
+    print("3- Cargar Libros con Tags")
     print("0- Salir")
 
 
@@ -84,26 +85,34 @@ def loadBooksTags(control):
 # Se crea el controlador asociado a la vista
 control = newController()
 
-"""
-Menu principal
-"""
-while True:
-    printMenu()
-    inputs = input("Seleccione una opción para continuar\n")
-    if int(inputs[0]) == 1:
-        print("Cargando información de libros....")
-        books = loadBooks(control)
-        print("Total de libros cargados: " + str(books))
+# main del ejercicio
+if __name__ == "__main__":
 
-    elif int(inputs[0]) == 2:
-        print("Cargando información de tags....")
-        tags = loadTags(control)
-        print("Total de tags cargados: " + str(tags))
+    """
+    Menu principal
+    """
+    working = True
+    # ciclo del menu
+    while working:
+        printMenu()
+        inputs = input("Seleccione una opción para continuar\n")
+        if int(inputs[0]) == 1:
+            print("Cargando información de libros....")
+            books = loadBooks(control)
+            print("Total de libros cargados: " + str(books))
 
-    # TODO: Modificaciones lab 1, agregar la funcion opt 3 -> ladBookTags().
-    elif int(inputs[0]) == 3:
-        pass
+        elif int(inputs[0]) == 2:
+            print("Cargando información de tags....")
+            tags = loadTags(control)
+            print("Total de tags cargados: " + str(tags))
 
-    else:
-        sys.exit(0)
-sys.exit(0)
+        # TODO: Mods Lab 1, agregar la funcion opt 3 -> ladBookTags().
+        elif int(inputs[0]) == 3:
+            print("Cargando información de libros con tags....")
+            book_tags = loadBooksTags(control)
+            print("Total de libros con tags cargados: " + str(book_tags))
+
+        else:
+            working = False
+            print("\nGracias por utilizar el programa.")
+    sys.exit(0)
