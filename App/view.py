@@ -21,6 +21,7 @@
  * contribuciones:
  *
  * Dario Correal - Version inicial
+ * Santiago Arteaga - Otras versiones
  """
 
 import config as cf

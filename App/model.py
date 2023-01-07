@@ -22,6 +22,7 @@
  * Contribuciones:
  *
  * Dario Correal - Version inicial
+ * Santiago Arteaga - Otras versiones
  """
 
 
