@@ -32,7 +32,7 @@ This repository is part of the data structure and algorithms (#EDA) teaching fra
 
 The students edit this section to add their names, Uniandes emails, and specify which project functionality of the project they will implement.
 
-1. Abraham Bohorquez, a.bohorquezg@uniandes.edu.co, 202222026.
+1. Abraham Bohorquez, a.bohorquezg@uniandes.edu.co, 202222026 .
 1. Maria Ines Velasquez, Mi.velasqueza1@uniandes.edu.co, 202224325.
 1. Santiago Cuesta, s.cuestao@uniandes.edu.co, 202220631.
 
