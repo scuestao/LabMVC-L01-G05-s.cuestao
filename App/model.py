@@ -139,3 +139,4 @@ def emptyTags(catalog):
 def emptyBookTags(catalog):
     book_tags = catalog.get("book_tags")
     return lt.isEmpty(book_tags)
+
